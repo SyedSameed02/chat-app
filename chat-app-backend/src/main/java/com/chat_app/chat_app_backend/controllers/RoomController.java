@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/rooms")
+@CrossOrigin("http://localhost:8080")
 public class RoomController {
 
     @Autowired
@@ -59,7 +60,7 @@ public class RoomController {
         {
             return ResponseEntity.badRequest().build();
         }
-        List<Message> messages = room.getMessages();
+        List<Message> messages = room .getMessages();
 
         int start = Math.max(0,messages.size()-(page+1)*size);
         int end = Math.min(messages.size(),start + size);
